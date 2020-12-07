@@ -1,8 +1,9 @@
-package net.coille.client.ui;
+package net.coille.client.arch.archDetection;
 
 import net.coille.client.arch.p2pArch.P2PClient;
 import net.coille.client.arch.pullArch.PullClient;
 import net.coille.client.arch.pushArch.PushClient;
+import net.coille.client.ui.UIController;
 import net.coille.common.arch.ArchInfo;
 import net.coille.common.arch.ArchitectureEnum;
 

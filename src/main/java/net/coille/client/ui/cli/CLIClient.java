@@ -1,7 +1,7 @@
 package net.coille.client.ui.cli;
 
-import net.coille.client.ui.ArchDetection;
-import net.coille.client.ui.ArchDetectionImpl;
+import net.coille.client.arch.archDetection.ArchDetection;
+import net.coille.client.arch.archDetection.ArchDetectionImpl;
 import net.coille.client.ui.UIController;
 import net.coille.common.message.GlobalMessageImpl;
 import net.coille.common.message.MessageImpl;
