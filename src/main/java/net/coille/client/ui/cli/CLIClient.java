@@ -4,7 +4,7 @@ import net.coille.client.arch.archDetection.ArchDetection;
 import net.coille.client.arch.archDetection.ArchDetectionImpl;
 import net.coille.client.ui.UIController;
 import net.coille.common.message.GlobalMessageImpl;
-import net.coille.common.message.MessageImpl;
+import net.coille.common.message.Message;
 import net.coille.common.message.PersonalMessageImpl;
 
 import java.net.MalformedURLException;
@@ -57,7 +57,7 @@ public class CLIClient {
         this.username = username;
     }
 
-    private String stringifyMessage(MessageImpl message) {
+    private String stringifyMessage(Message message) {
         if (message instanceof PersonalMessageImpl) {
             PersonalMessageImpl tmpMessage = (PersonalMessageImpl) message;
             return "[w] " + tmpMessage.getSender() + " to " + tmpMessage.getReceiver() + ": " + tmpMessage.getRawMessage();

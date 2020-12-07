@@ -2,7 +2,7 @@ package net.coille.client.arch.pushArch;
 
 import net.coille.client.ui.UIController;
 import net.coille.common.message.GlobalMessageImpl;
-import net.coille.common.message.MessageImpl;
+import net.coille.common.message.Message;
 import net.coille.common.message.PersonalMessageImpl;
 import net.coille.common.arch.pushArch.Connection;
 import net.coille.common.arch.pushArch.Emitter;
@@ -44,7 +44,7 @@ public class PushClient implements UIController {
     }
 
     @Override
-    public List<MessageImpl> getMessages() {
+    public List<Message> getMessages() {
         return receiver.getMessages();
     }
 

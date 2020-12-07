@@ -1,7 +1,7 @@
 package net.coille.server.arch.pullArch;
 
 import net.coille.common.message.GlobalMessageImpl;
-import net.coille.common.message.MessageImpl;
+import net.coille.common.message.Message;
 import net.coille.common.message.PersonalMessageImpl;
 import net.coille.common.arch.pullArch.Dialogue;
 
@@ -12,7 +12,7 @@ import java.util.*;
 public class DialogueImpl extends UnicastRemoteObject implements Dialogue {
     // Maybe not abstract enough ?
     private ConnectionImpl connection;
-    private List<MessageImpl> messages = new ArrayList<>();
+    private List<Message> messages = new ArrayList<>();
 
     protected DialogueImpl(ConnectionImpl connection) throws RemoteException {
         super();
@@ -43,7 +43,7 @@ public class DialogueImpl extends UnicastRemoteObject implements Dialogue {
     }
 
     @Override
-    public List<MessageImpl> getMessages() {
+    public List<Message> getMessages() {
         return messages;
     }
 

@@ -2,8 +2,7 @@ package net.coille.client.arch.pushArch;
 
 import net.coille.client.utils.ClientManagerImpl;
 import net.coille.client.utils.MessageBoxImpl;
-import net.coille.common.message.MessageImpl;
-import net.coille.common.message.PersonalMessageImpl;
+import net.coille.common.message.Message;
 import net.coille.common.arch.pushArch.Receiver;
 import net.coille.common.utils.ClientManager;
 import net.coille.common.utils.MessageBox;
@@ -21,7 +20,7 @@ public class ReceiverImpl extends UnicastRemoteObject implements Receiver, Messa
     }
 
     @Override
-    public void receive(MessageImpl message) throws RemoteException {
+    public void receive(Message message) throws RemoteException {
         messageBox.receive(message);
     }
 
@@ -40,7 +39,7 @@ public class ReceiverImpl extends UnicastRemoteObject implements Receiver, Messa
         clientManager.rmClient(client);
     }
 
-    public List<MessageImpl> getMessages() {
+    public List<Message> getMessages() {
         return messageBox.getMessages();
     }
 

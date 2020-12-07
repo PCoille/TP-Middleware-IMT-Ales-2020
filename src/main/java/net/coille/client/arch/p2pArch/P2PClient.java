@@ -2,7 +2,7 @@ package net.coille.client.arch.p2pArch;
 
 import net.coille.client.ui.UIController;
 import net.coille.common.message.GlobalMessageImpl;
-import net.coille.common.message.MessageImpl;
+import net.coille.common.message.Message;
 import net.coille.common.message.PersonalMessageImpl;
 import net.coille.common.arch.p2pArch.ServerConnection;
 
@@ -41,7 +41,7 @@ public class P2PClient implements UIController {
     }
 
     @Override
-    public List<MessageImpl> getMessages() throws RemoteException {
+    public List<Message> getMessages() throws RemoteException {
         return clientConnection.getInbox().getMessages();
     }
 

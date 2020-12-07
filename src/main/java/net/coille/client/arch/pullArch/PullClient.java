@@ -2,7 +2,7 @@ package net.coille.client.arch.pullArch;
 
 import net.coille.client.ui.UIController;
 import net.coille.common.message.GlobalMessageImpl;
-import net.coille.common.message.MessageImpl;
+import net.coille.common.message.Message;
 import net.coille.common.message.PersonalMessageImpl;
 import net.coille.common.arch.pullArch.Connection;
 import net.coille.common.arch.pullArch.Dialogue;
@@ -39,7 +39,7 @@ public class PullClient implements UIController {
     }
 
     @Override
-    public List<MessageImpl> getMessages() throws RemoteException {
+    public List<Message> getMessages() throws RemoteException {
         return dialogue.getMessages();
     }
 
