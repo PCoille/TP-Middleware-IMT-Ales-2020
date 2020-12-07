@@ -12,8 +12,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
 public class ReceiverImpl extends UnicastRemoteObject implements Receiver, MessageBox, ClientManager {
-    private ClientManagerImpl clientManager = new ClientManagerImpl();
-    private MessageBoxImpl messageBox = new MessageBoxImpl();
+    protected ClientManagerImpl clientManager = new ClientManagerImpl();
+    protected MessageBoxImpl messageBox = new MessageBoxImpl();
 
     protected ReceiverImpl() throws RemoteException {
         super();

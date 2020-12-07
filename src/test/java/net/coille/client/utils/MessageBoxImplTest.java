@@ -42,12 +42,8 @@ class MessageBoxImplTest {
         messageList.add(new PersonalMessageImpl("u1", "u2", "Hello"));
         messageList.add(new GlobalMessageImpl("u2", "Hi everyone"));
 
-        List<Message> messageList2 = new ArrayList<>();
-        messageList2.add(new PersonalMessageImpl("u1", "u2", "Hello"));
-        messageList2.add(new GlobalMessageImpl("u2", "Hi everyone"));
-
         messageBox.messageList = messageList;
 
-        assertEquals(messageList2, messageBox.getMessages());
+        assertEquals(messageList, messageBox.getMessages());
     }
 }
