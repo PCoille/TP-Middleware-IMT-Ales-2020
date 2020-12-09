@@ -1,4 +1,4 @@
 @echo off
 cd ./target/classes
-java net.coille.client.Client
+java net.coille.middleware.client.Client
 pause

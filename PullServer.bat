@@ -1,4 +1,4 @@
 @echo off
 cd ./target/classes
-java net.coille.server.PullServer
+java net.coille.middleware.server.PullServer
 pause

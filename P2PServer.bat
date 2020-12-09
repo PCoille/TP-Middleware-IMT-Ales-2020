@@ -1,4 +1,4 @@
 @echo off
 cd ./target/classes
-java net.coille.server.P2PServer
+java net.coille.middleware.server.P2PServer
 pause
