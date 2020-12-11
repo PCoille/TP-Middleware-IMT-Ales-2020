@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessageBoxImpl extends UnicastRemoteObject implements MessageBox {
-    protected List<Message> messageList = new ArrayList<>();
+    protected transient List<Message> messageList = new ArrayList<>();
 
     public MessageBoxImpl() throws RemoteException {
         super();

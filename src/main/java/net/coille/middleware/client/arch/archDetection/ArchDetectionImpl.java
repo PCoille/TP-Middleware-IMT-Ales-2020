@@ -1,8 +1,8 @@
 package net.coille.middleware.client.arch.archDetection;
 
-import net.coille.middleware.client.arch.p2pArch.P2PClient;
-import net.coille.middleware.client.arch.pullArch.PullClient;
-import net.coille.middleware.client.arch.pushArch.PushClient;
+import net.coille.middleware.client.arch.p2p.P2PClient;
+import net.coille.middleware.client.arch.pull.PullClient;
+import net.coille.middleware.client.arch.push.PushClient;
 import net.coille.middleware.client.ui.UIController;
 import net.coille.middleware.common.arch.ArchInfo;
 import net.coille.middleware.common.arch.ArchitectureEnum;

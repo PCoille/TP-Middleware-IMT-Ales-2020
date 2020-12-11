@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientManagerImpl extends UnicastRemoteObject implements ClientManager {
-    protected List<String> clientsList = new ArrayList<>();
+    protected transient List<String> clientsList = new ArrayList<>();
 
     public ClientManagerImpl() throws RemoteException {
         super();

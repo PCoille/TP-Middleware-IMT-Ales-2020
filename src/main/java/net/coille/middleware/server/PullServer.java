@@ -1,6 +1,6 @@
 package net.coille.middleware.server;
 
-import net.coille.middleware.server.arch.pullArch.PullServerImpl;
+import net.coille.middleware.server.arch.pull.PullServerImpl;
 import net.coille.middleware.server.utils.GenericServer;
 
 import java.net.MalformedURLException;
