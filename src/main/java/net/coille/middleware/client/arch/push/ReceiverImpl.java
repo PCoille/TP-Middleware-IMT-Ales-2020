@@ -2,8 +2,8 @@ package net.coille.middleware.client.arch.push;
 
 import net.coille.middleware.client.utils.ClientManagerImpl;
 import net.coille.middleware.client.utils.MessageBoxImpl;
-import net.coille.middleware.common.message.Message;
 import net.coille.middleware.common.arch.push.Receiver;
+import net.coille.middleware.common.message.Message;
 import net.coille.middleware.common.utils.ClientManager;
 import net.coille.middleware.common.utils.MessageBox;
 

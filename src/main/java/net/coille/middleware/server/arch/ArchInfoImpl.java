@@ -1,7 +1,7 @@
 package net.coille.middleware.server.arch;
 
-import net.coille.middleware.common.arch.ArchitectureEnum;
 import net.coille.middleware.common.arch.ArchInfo;
+import net.coille.middleware.common.arch.ArchitectureEnum;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;

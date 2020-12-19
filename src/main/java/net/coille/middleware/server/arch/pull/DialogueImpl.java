@@ -1,13 +1,14 @@
 package net.coille.middleware.server.arch.pull;
 
+import net.coille.middleware.common.arch.pull.Dialogue;
 import net.coille.middleware.common.message.GlobalMessageImpl;
 import net.coille.middleware.common.message.Message;
 import net.coille.middleware.common.message.PersonalMessageImpl;
-import net.coille.middleware.common.arch.pull.Dialogue;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DialogueImpl extends UnicastRemoteObject implements Dialogue {
     // Maybe not abstract enough ?

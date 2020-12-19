@@ -1,12 +1,11 @@
 package net.coille.middleware.client.arch.push;
 
 import net.coille.middleware.client.ui.UIController;
+import net.coille.middleware.common.arch.push.Connection;
+import net.coille.middleware.common.arch.push.Emitter;
 import net.coille.middleware.common.message.GlobalMessageImpl;
 import net.coille.middleware.common.message.Message;
 import net.coille.middleware.common.message.PersonalMessageImpl;
-import net.coille.middleware.common.arch.push.Connection;
-import net.coille.middleware.common.arch.push.Emitter;
-
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;

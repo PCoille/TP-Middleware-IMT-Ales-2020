@@ -1,10 +1,10 @@
 package net.coille.middleware.client.arch.p2p;
 
 import net.coille.middleware.client.ui.UIController;
+import net.coille.middleware.common.arch.p2p.ServerConnection;
 import net.coille.middleware.common.message.GlobalMessageImpl;
 import net.coille.middleware.common.message.Message;
 import net.coille.middleware.common.message.PersonalMessageImpl;
-import net.coille.middleware.common.arch.p2p.ServerConnection;
 
 import java.net.MalformedURLException;
 import java.rmi.ConnectException;
@@ -19,7 +19,7 @@ public class P2PClient implements UIController {
 
     @Override
     public void initSystem() throws RemoteException, NotBoundException, MalformedURLException {
-        this.serverConnection = (ServerConnection) Naming.lookup("rmi://localhost:12357/Connection");;
+        this.serverConnection = (ServerConnection) Naming.lookup("rmi://localhost:12357/Connection");
         this.clientConnection = new ClientConnectionImpl();
         System.out.println("P2P Client initialized");
     }

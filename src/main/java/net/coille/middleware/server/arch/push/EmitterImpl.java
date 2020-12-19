@@ -1,8 +1,8 @@
 package net.coille.middleware.server.arch.push;
 
+import net.coille.middleware.common.arch.push.Emitter;
 import net.coille.middleware.common.message.GlobalMessageImpl;
 import net.coille.middleware.common.message.PersonalMessageImpl;
-import net.coille.middleware.common.arch.push.Emitter;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

@@ -1,8 +1,8 @@
 package net.coille.middleware.client;
 
-import java.rmi.RemoteException;
-
 import net.coille.middleware.client.ui.cli.CLIClient;
+
+import java.rmi.RemoteException;
 
 
 public class Client {
