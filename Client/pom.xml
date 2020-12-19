@@ -49,7 +49,7 @@
                         <phase>package</phase>
                         <configuration>
                             <outputDirectory>
-                                ${project.basedir}/${project.parent.relativePath}/../target/
+                                ${maven.multiModuleProjectDirectory}/target/
                             </outputDirectory>
                         </configuration>
                         <goals>
