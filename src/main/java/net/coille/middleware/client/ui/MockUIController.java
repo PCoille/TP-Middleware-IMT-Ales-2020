@@ -24,12 +24,17 @@ public class MockUIController implements UIController {
 
     @Override
     public boolean initUser(String username) throws RemoteException {
-        this.username = username;
+        if (!username.equals("admin")) {
+            this.username = username;
 
-        messages.add(new PersonalMessageImpl("u1", username, "Hello " + username));
-        messages.add(new GlobalMessageImpl("u2", "Hi everyone. " + username + " is here."));
+            messages.add(new PersonalMessageImpl("u1", username, "Hello " + username));
+            messages.add(new GlobalMessageImpl("u2", "Hi everyone. " + username + " is here."));
 
-        return true;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override

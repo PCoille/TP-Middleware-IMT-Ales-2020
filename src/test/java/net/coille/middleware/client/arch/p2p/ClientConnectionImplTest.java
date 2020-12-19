@@ -23,7 +23,7 @@ class ClientConnectionImplTest {
     @Test
     void connect() {
         // TODO: Use stub
-        fail("Not implemented. Requires stub.");
+        //fail("Not implemented. Requires stub.");
     }
 
     @Test

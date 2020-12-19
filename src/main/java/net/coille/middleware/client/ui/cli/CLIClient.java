@@ -7,9 +7,13 @@ import net.coille.middleware.common.message.GlobalMessageImpl;
 import net.coille.middleware.common.message.Message;
 import net.coille.middleware.common.message.PersonalMessageImpl;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -17,10 +21,20 @@ public class CLIClient {
     protected UIController uiController;
     protected String username;
     // Can change the used output, but still using System.out
-    protected CLIOutput outStream = new CLIStandardOutput();
+    protected PrintStream printStream = System.out;
+    protected InputStream inputStream = System.in;
 
     protected CLIClient() throws RemoteException, NotBoundException, MalformedURLException {
         this.initUiController();
+        this.initCLIClient();
+    }
+
+    protected CLIClient(UIController uiController) throws RemoteException {
+        this.uiController = uiController;
+        this.initCLIClient();
+    }
+
+    protected void initCLIClient() throws RemoteException {
         this.initUsername();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -35,19 +49,19 @@ public class CLIClient {
     protected void initUiController() throws RemoteException, NotBoundException, MalformedURLException {
         ArchDetection archDetection = new ArchDetectionImpl();
         uiController = archDetection.getUIControllerClient();
-        outStream.println("Initializing " + archDetection.getServerArchitecture().getArchName() + " client.");
+        printStream.println("Initializing " + archDetection.getServerArchitecture().getArchName() + " client.");
 
         uiController.initSystem();
     }
 
     protected void initUsername() throws RemoteException {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(inputStream);
 
-        outStream.println("Enter username");
+        printStream.println("Enter username");
         String userInputName = scanner.nextLine();
 
         while (!uiController.initUser(userInputName)) {
-            outStream.println("Username already taken. Choose another username.");
+            printStream.println("Username already taken. Choose another username.");
             userInputName = scanner.nextLine();
         }
 
@@ -78,7 +92,7 @@ public class CLIClient {
                 uiController.sendMessageToAll(new GlobalMessageImpl(username, String.join(" ", Arrays.copyOfRange(splitCommand, 1, splitCommand.length))));
             }
             else {
-                outStream.println("Not enough arguments. Type \"help\" for help.");
+                printStream.println("Not enough arguments. Type \"help\" for help.");
             }
         }
         else if("w".equals(splitCommand[0])){
@@ -86,35 +100,35 @@ public class CLIClient {
                 uiController.sendPersonalMessage(new PersonalMessageImpl(username, splitCommand[1], splitCommand[2]));
             }
             else {
-                outStream.println("Not enough arguments. Type \"help\" for help.");
+                printStream.println("Not enough arguments. Type \"help\" for help.");
             }
         }
         else if("get".equals(splitCommand[0])){
-            uiController.getMessages().forEach(message -> outStream.println(this.stringifyMessage(message)));
+            uiController.getMessages().forEach(message -> printStream.println(this.stringifyMessage(message)));
         }
         else if("who".equals(splitCommand[0])){
-            uiController.getUsers().forEach(s -> outStream.println("["+s+"]"));
+            uiController.getUsers().forEach(s -> printStream.println("["+s+"]"));
         }
         else if("help".equals(splitCommand[0])){
-            outStream.println();
-            outStream.println("exit:\tDisconnect from the session");
-            outStream.println("w [recipient] [message]:\tSend message to recipient");
-            outStream.println("all [message]:\tSend message to everyone");
-            outStream.println("get:\tGet the received messages");
-            outStream.println("who:\tGet other clients name");
-            outStream.println("help:\tShow the help menu");
-            outStream.println();
+            printStream.println();
+            printStream.println("exit:\tDisconnect from the session");
+            printStream.println("w [recipient] [message]:\tSend message to recipient");
+            printStream.println("all [message]:\tSend message to everyone");
+            printStream.println("get:\tGet the received messages");
+            printStream.println("who:\tGet other clients name");
+            printStream.println("help:\tShow the help menu");
+            printStream.println();
         }
         else {
-            outStream.println("Command not recognised. Type \"help\" for help.");
+            printStream.println("Command not recognised. Type \"help\" for help.");
         }
 
         return true;
     }
 
     public void start() throws RemoteException {
-        Scanner scanner = new Scanner(System.in);
-        outStream.println("Write your message. Type \"help\" for help.");
+        Scanner scanner = new Scanner(inputStream);
+        printStream.println("Write your message. Type \"help\" for help.");
 
         boolean loopExecCommand = true;
         while (loopExecCommand) {
@@ -122,7 +136,7 @@ public class CLIClient {
         }
 
         uiController.exit(username);
-        outStream.println("Disconnected successfully");
+        printStream.println("Disconnected successfully");
     }
 
 

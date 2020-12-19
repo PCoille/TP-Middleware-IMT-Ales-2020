@@ -1,15 +1,38 @@
 package net.coille.middleware.client.ui.cli;
 
+import net.coille.middleware.client.ui.MockUIController;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CLIClientTest {
+    CLIClient client;
+
+    ByteArrayInputStream toInputStream(String input) {
+        return new ByteArrayInputStream(input.getBytes());
+    }
+
+    void setInputStream(String input) {
+        client.inputStream = toInputStream(input);
+    }
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws RemoteException, NotBoundException, MalformedURLException {
+
     }
 
     @AfterEach
@@ -17,32 +40,25 @@ class CLIClientTest {
     }
 
     @Test
-    void initUiController() {
-        fail("TODO");
-    }
+    void initUsername() throws IOException {
+        InputStream sysInBackup = System.in;
 
-    @Test
-    void initUsername() {
-        fail("TODO");
-    }
+        ArrayList<String> inputList1 = new ArrayList<>(Collections.singletonList("test1"));
+        ArrayList<String> inputList2 = new ArrayList<>(Arrays.asList("admin","test2","test3"));
 
-    @Test
-    void stringifyMessage() {
-        fail("TODO");
-    }
+        ByteArrayInputStream in = toInputStream(String.join(System.lineSeparator(),inputList1));
+        ByteArrayInputStream in2 = toInputStream(String.join(System.lineSeparator(),inputList2));
 
-    @Test
-    void execCommand() {
-        fail("TODO");
-    }
+        System.setIn(in);
 
-    @Test
-    void start() {
-        fail("TODO");
-    }
+        client = new CLIClient(new MockUIController());
 
-    @Test
-    void main() {
-        fail("TODO");
+        assertEquals("test1", client.username);
+
+        client.inputStream = in2;
+
+        client.initUsername();
+
+        assertEquals("test2", client.username);
     }
 }
