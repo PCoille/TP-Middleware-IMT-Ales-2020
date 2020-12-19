@@ -1,4 +1,4 @@
 @echo off
-cd ./target/classes
-java net.coille.middleware.net.coille.imt.middleware.server.PullServer
+cd ./target
+java -jar ./Server-jar-with-dependencies.jar --pull
 pause

@@ -16,6 +16,9 @@ public class GenericServer {
     }
 
     public void initConnection() throws RemoteException, MalformedURLException {
+        System.out.println("Starting " + server.getArchitecture().getArchName() + " server ...");
+
+
         // registry creation
         Registry registry = LocateRegistry.createRegistry(12357);
 
@@ -23,6 +26,10 @@ public class GenericServer {
         ArchInfo archInfo = new ArchInfoImpl(server.getArchitecture());
         archInfo.serveArch();
 
-        System.out.println(server.getArchitecture().getArchName() + " Serveur actif");
+        System.out.println(server.getArchitecture().getArchName() + " server active");
+    }
+
+    public Server getServer() {
+        return server;
     }
 }

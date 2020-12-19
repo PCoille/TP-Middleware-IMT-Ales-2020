@@ -1,4 +1,4 @@
 @echo off
-cd ./target/classes
-java Client
+cd ./target
+java -jar ./Client-jar-with-dependencies.jar
 pause
