@@ -47,7 +47,7 @@ public class CLIClient {
     protected void initUiController() throws RemoteException, NotBoundException, MalformedURLException {
         ArchDetection archDetection = new ArchDetectionImpl();
         uiController = archDetection.getUIControllerClient();
-        printStream.println("Initializing " + archDetection.getServerArchitecture().getArchName() + " net.coille.imt.middleware.net.coille.imt.middleware.client.");
+        printStream.println("Initializing " + archDetection.getServerArchitecture().getArchName() + " client.");
 
         uiController.initSystem();
     }
