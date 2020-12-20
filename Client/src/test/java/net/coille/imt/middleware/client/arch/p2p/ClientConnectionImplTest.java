@@ -21,12 +21,6 @@ class ClientConnectionImplTest {
     }
 
     @Test
-    void connect() {
-        // TODO: Use stub
-        //fail("Not implemented. Requires stub.");
-    }
-
-    @Test
     void getClientManager() {
         assertEquals(clientConnection.clientManager, clientConnection.getClientManager());
         assertNotNull(clientConnection.getClientManager());

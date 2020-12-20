@@ -11,7 +11,6 @@ import java.rmi.server.UnicastRemoteObject;
 public class ClientConnectionImpl extends UnicastRemoteObject implements ClientConnection {
     protected ClientManagerImpl clientManager = new ClientManagerImpl();
     protected MessageBoxImpl inbox = new MessageBoxImpl();
-    //private Map<String, MessageBox> peersMessageBox;
 
     protected ClientConnectionImpl() throws RemoteException {
         super();
@@ -19,7 +18,6 @@ public class ClientConnectionImpl extends UnicastRemoteObject implements ClientC
 
     @Override
     public MessageBox connect(String nickname, MessageBox receiver) throws RemoteException {
-        //peersMessageBox.put(nickname, receiver);
         return inbox;
     }
 
