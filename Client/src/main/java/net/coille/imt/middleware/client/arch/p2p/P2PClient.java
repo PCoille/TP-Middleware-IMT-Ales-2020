@@ -47,7 +47,7 @@ public class P2PClient implements UIController {
 
     @Override
     public void sendPersonalMessage(PersonalMessageImpl message) throws RemoteException {
-        if (!(serverConnection.getClient(message.getReceiver()) == null)) {
+        if (serverConnection.getClient(message.getReceiver()) != null) {
             try {
                 serverConnection.getClient(message.getReceiver())
                         .connect(message.getSender(), clientConnection.getInbox())
